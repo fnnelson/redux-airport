@@ -5,8 +5,10 @@ function App() {
   return (
     <div>
       <h1>Redux Airport</h1>
-      <input placeholder='Airline Name' />
-      <button>Add Airline</button>
+      <form >
+        <input placeholder='Airline Name' />
+        <button>Add Airline</button>
+      </form>
       <table>{/* Airlines should be listed here */}</table>
     </div>
   );
