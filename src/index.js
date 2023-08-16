@@ -17,11 +17,23 @@ const airlineList = (state = ['Delta'], action) => {
     return state;
 }
 
+const count = (state = 0, action) => {
+    console.log("in counter!", action)
+    if (action.type === 'INCREMENT') {
+        return state + 1;
+    }
+    if (action.type === 'DECREMENT') {
+        return state - 1;
+    }
+    return state;
+}
+
 /** TODO: Create store */
 const storeAirport = createStore(
     combineReducers({
         // only 1 reducer to start, but if we stretch, will have a 2nd at least
-        airlineList
+        airlineList,
+        count
     }),
     applyMiddleware(
         logger

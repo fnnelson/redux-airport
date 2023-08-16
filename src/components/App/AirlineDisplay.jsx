@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function AirlineDisplay({ airlineList }) {
+export function AirlineDisplay({ airlineList, dispatch, count }) {
     return (
         <table>
             <thead>
@@ -9,15 +9,16 @@ export function AirlineDisplay({ airlineList }) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    {airlineList.map((airline, index) => {
-                        return (
-                            <td key={index}>
-                                {airline}
-                            </td>
-                        )
-                    })}
-                </tr>
+                {airlineList.map((airline, index) => {
+                    return (
+                        <tr key={index}>
+                            <td>{airline}</td>
+                            <td>{count}</td>
+                            <button onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>
+                            <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>
+                        </tr>
+                    )
+                })}
             </tbody>
         </table>
     )

@@ -10,6 +10,7 @@ function App() {
 
   //redux reducer stuff
   const airlineList = useSelector(store => store.airlineList)
+  const count = useSelector(store => store.count)
 
   // in order to use dispatch method.  use like a walkie talkie
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function App() {
     <div>
       <h1>Redux Airport</h1>
       <AirlineForm handleSubmit={handleSubmit} setNewAirline={setNewAirline} newAirline={newAirline} />
-      <AirlineDisplay airlineList={airlineList} />
+      <AirlineDisplay airlineList={airlineList} dispatch={dispatch} count={count}/>
     </div>
   );
 }
